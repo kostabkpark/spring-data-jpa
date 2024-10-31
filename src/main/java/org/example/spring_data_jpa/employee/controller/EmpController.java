@@ -29,6 +29,11 @@ public class EmpController {
         return empService.getOneEmp(empId).get();
     }
 
+    @GetMapping("/name/{empName}")
+    public List<Employee>  getEmployeeByName(@PathVariable("empName") String empName) {
+        return empService.getAllEmpWithEmpName(empName);
+    }
+
     @PutMapping("/{empId}")
     public Employee updateEmployee(
             @PathVariable("empId") String empId,

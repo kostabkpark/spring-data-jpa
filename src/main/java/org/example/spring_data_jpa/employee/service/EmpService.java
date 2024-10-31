@@ -26,6 +26,11 @@ public class EmpService {
         return empRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
+    public List<Employee> getAllEmpWithEmpName(String empName) {
+        return empRepository.findByEmpNameLike("%"+empName+"%");
+    }
+
     public Employee saveEmp(Employee emp) {
         Employee saveEmp = empRepository.save(emp);
         return saveEmp;
